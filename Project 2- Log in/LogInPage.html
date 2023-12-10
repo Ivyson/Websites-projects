@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Add your background image URL here */
+            background-size: cover;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust the last value (alpha) for transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle border effect */
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-group button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-group button:hover {
+            background-color: #45a049;
+        }
+        .ForgotPassword
+        {
+            color: blue;
+            font-size: x-small;
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        <div class="input-group">
+            <label for="password" style="cursor: text;">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <div class="ForgotPassword">
+            <a href="https://www.facebook.com">Forgotten Password?</a> <br>
+        </div>
+        <div class="input-group">
+            <a href="https://www.facebook.com"><button type="submit">Login</button></a>
+        </div>
+    </div>
+</body>
+</html>

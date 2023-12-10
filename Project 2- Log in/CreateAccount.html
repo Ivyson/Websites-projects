@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create An acoount</title>
+    <style>
+input
+{
+    display: flex;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 8px;
+}
+label 
+{
+            display: block;
+            margin-bottom: 5px;
+}
+form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(163, 141, 185, 1) 32%, rgba(140, 131, 180, 1) 42%, rgba(119, 122, 175, 1) 51%, rgba(103, 115, 171, 1) 58%, rgba(5, 71, 150, 1) 100%);
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+button{
+            border-radius: 8px;
+            background-color: #4caf50;
+            color: #fff;
+            box-sizing: border-box;
+            font-family: monospace;
+            height: 120%; 
+            cursor: pointer; 
+            transition: background-color 0.5s ease, color 0.5s ease;  
+      }
+      button:hover {
+    /*transform: scale(0.8);  */
+    /* font-size: xx-small; */
+    background: rgb(63,94,251);
+/* background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+}
+
+    </style>
+</head>
+<head><div><h1>Create an account</h1></div></head>
+<body>
+<form onsubmit="Validateform(event)">
+<div>
+    <label for="FirstName">First Names:</label>
+    <input type="text" id="FirstName" name = "FirstName" placeholder = "First Names" required> 
+</div>
+<div>
+    <label for="Surname">Last Name:</label>
+    <input type="text" id="Surname" name="Last Name" placeholder="Enter Your Last Name"required>
+</div>
+<div>
+    <label id="Email">Email:</label>
+    <input type="email" id="Email" name="Email" placeholder="abcd@domain.com" required>
+</div>
+<div>
+    <label for="PhoneNumber">Phone Number:</label>
+    <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="123456789" required>
+</div>
+<div>
+    <label for="DOB">Date of birth:</label>
+    <input type="date" id="DOB" name="DOB" required>
+</div>
+<div>
+    <label for="Password">Password</label>
+    <input type="password" id="Password" name="Password" placeholder="********" required>
+</div>
+<div>
+    <label for="CPassword">Confirm Password</label>
+    <input type="password" id="CPassword" name="CPassword" placeholder="********" required>
+</div>
+<div>
+    <a href="LogInPage.html" style="font-family: monospace;cursor: pointer;">Already a user?</a>
+</div>
+<br>
+</form><br>
+<a href="LogInPage.html"><button id="Submit" onclick="">Submit</button></a>
+<script>
+    function Validateform(event){
+        event.preventDefault();
+        let password = document.getElementById("Password").value;
+        let CPassword = document.getElementById("CPassword").value;
+        let Cnumber =document.getElementById("PhoneNumber").value;
+        if(password != CPassword)
+        {
+            alert("Passwords do not match");
+        }
+        if(Cnumber != 10)
+        {
+            alert("Your Cellphone should have 10 numbers");
+        }
+    }
+</script>
+</body><hr><br>
+<footer>&copy;2023 Samukelo Gift Msimanga Copyright reserved</footer>
+</html>
