@@ -6,7 +6,8 @@
     <title>Login Page</title>
     <style>
         body {
-            background-image: url('background-image.jpg'); 
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(163, 141, 185, 1) 32%, rgba(140, 131, 180, 1) 42%, rgba(119, 122, 175, 1) 51%, rgba(103, 115, 171, 1) 58%, rgba(5, 71, 150, 1) 100%); 
             background-size: cover;
             margin: 0;
             font-family: 'Times New Roman', Times, serif;
@@ -51,10 +52,11 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .input-group button:hover {
-            background-color: #45a049;
+            background-color: cadetblue;
         }
         .ForgotPassword
         {
@@ -65,6 +67,7 @@
     </style>
 </head>
 <body>
+    <form onsubmit="ValidateForm(event)">
     <div class="login-container">
         <h2>Login</h2>
         <div class="input-group">
@@ -76,11 +79,27 @@
             <input type="password" id="password" name="password" placeholder="Enter your password">
         </div>
         <div class="ForgotPassword">
-            <a href="https://www.facebook.com">Forgotten Password?</a> <br>
+            <a href="ForgottenPassword.html"><pre>Forgotten Password?</pre></a> 
+            <a href="CreateAccount.html">No Existing account? Create a new one</a>
         </div>
-        <div class="input-group">
+        <!-- <div class="ForgotPassword">
+            <a href="CreateAccount.html">No Existing account? Create a new one</a> <br>
+        </div> -->
+        <div class="input-group"> 
             <a href="https://www.facebook.com"><button type="submit">Login</button></a>
         </div>
     </div>
+</form>
+<script>
+    function ValidateForm(event) {
+        event.preventDefault();
+        let Password = document.getElementById("password").value;
+        let Username = document.getElementById("username").value;
+        if(Password != "Samkelow" && Username != "Samkelo")
+        {
+            alert("Wrong Details");
+        }
+    }
+</script>
 </body>
 </html>
