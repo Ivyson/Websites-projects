@@ -71,7 +71,7 @@
     display: none;
    }
    #question{
-    color: black;
+    color: black; 
    }
    .correct{
     background: #9aeabc;
@@ -198,14 +198,15 @@
         function showScore()
         {
             resetState();
-            questiontobeset.innerHTML = 'You Scored ${Score} out of ${questions.length}!';
+            questiontobeset.innerHTML = `You Scored ${Score} out of ${questions.length}!`;
             nextbttn.innerHTML = "Play Again!"
             nextbttn.style.display = "block";
         }
         function handleNextbutton(){
-            currentquestionIndex++;
-            if(currentquestionIndex < questions.length)
+            
+            if(currentquestionIndex < questions.length - 1)
             {
+                currentquestionIndex++;
                 showQuestion();
             }
             else{
