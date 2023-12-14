@@ -14,8 +14,9 @@
     box-sizing: border-box; 
    } 
    body{
-    background: #001e4d;
-   }
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(154,63,163,1) 54%, rgba(252,70,107,1) 100%);
+    }
    .app{
     background: #fff;
     padding: 30px;
@@ -79,10 +80,14 @@
    .incorrect{
     background: red;
    }
+   h1{
+    text-align: center;
+    font-weight: 800;
+   }
 </style>
 <body>
+    <h1>Quiz App</h1>
     <div class="app">
-        <h1>Quiz App</h1>
         <div class="quiz">
             <h2 id="question">Question goesuvgyvy here</h2>
             <div id="answer-buttons">
@@ -122,7 +127,7 @@
                     { Text: "5", correct: false },
                     { Text: "6", correct: false },
                 ]
-            }
+            },
         ];
     
         const questiontobeset = document.getElementById("question");
@@ -182,8 +187,8 @@
             });
             nextbttn.style.display = "block";
     
-            nextbtn.style.display = "block";
-            nextbtn.addEventListener("click", () => {
+            nextbttn.style.display = "block";
+            nextbttn.addEventListener("click", () => {
                 currentquestionIndex++;
                 if (currentquestionIndex < questions.length) {
                     showQuestion();
@@ -191,7 +196,8 @@
                     // Quiz completed
                     questiontobeset.innerHTML = "Quiz completed!";
                     answerbutton.innerHTML = "";
-                    nextbtn.style.display = "none";
+                    nextbttn.style.display = "none";
+                    showScore();
                 }
             });
         }
