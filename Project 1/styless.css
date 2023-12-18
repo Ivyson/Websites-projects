@@ -6,7 +6,7 @@ body{
 }
 header {
     background-color: #3498db;
-    color: #fff;
+    color: #181717;
     text-align: center;
     padding: 20px;
 }
@@ -59,6 +59,12 @@ main {
 .social-Icons a:hover img {
     transform: scale(1.2);
 }
+.DownloadCv
+{
+    margin-left: 850px;
+    transition: transform 0.3s ease-in-out;
+    color: #3498db;
+}
 .panel {
     width: 300px;
     padding: 20px;
@@ -75,9 +81,19 @@ main {
 .project-card {
     background-color: #fff;
     padding: 15px;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+img:hover{
+    transform: scale(1.05);
+}
+#projects{
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
 }
 .project-card:hover {
     transform: scale(1.05);
@@ -87,10 +103,13 @@ h2 {
 }
 nav ul {
     list-style: none;
-    display: block;
 }
 nav ul li {
     margin-right: 20px;
+    display: inline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-items: baseline;
 }
 nav a {
     text-decoration: none;
@@ -99,7 +118,7 @@ nav a {
     transition: color 0.3a ease-in-out;
 }
 nav a:hover{
-    color: blanchedalmond;
+    color: grey;
 }
 .section {
     padding: 50px 20px;
@@ -123,4 +142,11 @@ footer {
     position: inherit;
     bottom: 0;
     width: 100%;
+}
+nav{
+    background:linear-gradient(to right, #557f9b, #092515);
+    height: 70px;
+    display: flex;
+    border: none;
+
 }
