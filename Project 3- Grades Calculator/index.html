@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body{
+            background: rgb(34,193,195);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        div{
+            flex-direction: column;
+            align-items: center;
+        }
+        div label{
+            margin-bottom: 10px
+        }
+        .CalculatorContainer
+        {
+            background: rgba(255, 255, 255,0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 2px;
+            height: 50vh;
+            margin: 20px;
+            max-height: 100%;
+            border-radius: 8px;
+            display: inline;
+        }
+        h2{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        div input{
+            margin: 10px;
+            align-self: center;
+            border: 1px solid grey;
+            border-radius: 2px;
+            padding: 2px;
+        }
+        .social-media
+        {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            padding: 20px;
+        }
+        button{
+            background: blueviolet;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 0;
+            border-radius: 8px;
+            padding: 6px;
+            margin-top: 10px;
+        }
+
+        .fade-out {
+            animation: fadeOut 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        #result {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="CalculatorContainer">
+        <div><h2>Grades Calculator</h2></div>
+        <div><label for="Physics">Physical Sciences</label>
+            <input id="Physics" type="number" placeholder="#%">
+        </div>
+        <div><label for="Lscience">Life Sciences</label>
+            <input id="Lscience" type="number" placeholder="#%">
+        </div>
+        <div><label for="Maths">Mathematics</label>
+            <input id="Maths" type="number" placeholder="#%">
+        </div>
+        <div><label for="Geography">Geography</label>
+            <input id="Geography" type="number" placeholder="#%">
+        </div><br>
+        <div>
+            <button id="Submit" onclick="calculateGrades()">Calculate</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateGrades()
+        {
+            let GeographyMark = document.getElementById("Geography").value;
+            GeographyMark = Number (GeographyMark);
+            let MathsMark = document.getElementById("Maths").value;
+            MathsMark = Number(MathsMark);
+            let LifeSciMark = document.getElementById("Lscience").value;
+            LifeSciMark = Number (LifeSciMark);
+            let PhysicsMark = document.getElementById("Physics").value;
+            PhysicsMark = Number (PhysicsMark);
+            if(GeographyMark > 100 || LifeSciMark > 100 || PhysicsMark > 100 || MathsMark > 100)
+            {
+                alert("The provided values are not supposed to exceed 100 and be below 0 %");
+            }
+            else if(GeographyMark == "" || LifeSciMark == "" || PhysicsMark == "" || MathsMark == "")
+            {
+                alert("The marks cannot be empty");
+            }
+            else if(GeographyMark < 0 || LifeSciMark < 0 || PhysicsMark < 0 || MathsMark < 0)
+            {
+                alert("You cannot have negative marks")
+            }
+            else{
+                let average = 100*(PhysicsMark + MathsMark + LifeSciMark +GeographyMark)/400;
+                if (average) {
+                    const calculatorContainer = document.querySelector(".CalculatorContainer");
+                    calculatorContainer.classList.add("fade-out");
+                    setTimeout(() => {
+                        const resultDiv = document.getElementById("result");
+                        resultDiv.innerHTML = `Your average is ${average.toFixed(2)}`;
+                        resultDiv.style.display = "block";
+                        calculatorContainer.style.opacity = 1;
+                calculatorContainer.classList.remove("fade-out");
+                    }, 1500);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
