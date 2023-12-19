@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grades Calculator</title>
     <style>
         *{
             margin: 0;
@@ -67,8 +67,14 @@
             border-radius: 8px;
             padding: 6px;
             margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
         }
-
+        button:hover{
+            background:rgb(48, 29, 66) ;
+            color: white;
+            transform: scale(1.05);
+        }
         .fade-out {
             animation: fadeOut 1.5s ease-out forwards;
         }
@@ -89,6 +95,7 @@
             margin-top: 20px;
         }
     </style>
+    <link rel="icon" type="image/x-icon" href="Images/calculator.ico">
 </head>
 <body>
     <div class="CalculatorContainer">
