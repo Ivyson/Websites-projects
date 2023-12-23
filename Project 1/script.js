@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded',function() {
         return (
             rect.top >= 0 &&
             rect.left >= 0 &&
-            rect.buttom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
             rect.right <= (window.innerWidth || document.documentElement.clientWidth) 
         );
     }
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',function() {
         if(window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
-            header.classList.remove('scroled');
+            header.classList.remove('scrolled');
         }
     }
     themeToggle.addEventListener('change',function () {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded',function() {
             document.body.classList.add('dark-mode');
         } else{
             document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme','');
+            localStorage.setItem('theme', '');
         }
     });
     toggleDashboardButton.addEventListener('click', function () {
