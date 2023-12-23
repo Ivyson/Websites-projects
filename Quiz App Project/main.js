@@ -95,7 +95,7 @@ function selectAnswer(e) {
             questiontobeset.innerHTML = "Quiz completed!";
             answerbutton.innerHTML = "";
             nextbttn.style.display = "none";
-            // showScore();
+             showScore();
         }
     });
 }
