@@ -157,3 +157,46 @@ nav{
     border: none;
 
 }
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .DownloadCv {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .dashboard {
+        width: 100%;
+        left: 0;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .TopLine {
+        padding-left: 20px;
+    }
+
+    .panel {
+        width: 100%;
+    }
+
+    .project-card {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    
+}
