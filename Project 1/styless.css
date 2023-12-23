@@ -160,8 +160,7 @@ nav{
 /* Media queries for responsive design */
 @media only screen and (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        margin-right: 20px;
+    margin-right: 20px;
     display: inline;
     font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
