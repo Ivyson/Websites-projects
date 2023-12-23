@@ -1,6 +1,6 @@
  const keys = document.querySelectorAll('.key'); //initiaise the selected key
-const displayInput = document.querySelectorAll('.Display .Input');
-const displayOutput = document.querySelectorAll('.Display .output');
+ const displayInput = document.querySelector('.Display .Input');
+ const displayOutput = document.querySelector('.Display .output'); 
 
 let input = "";
 for (let key of keys)
@@ -89,7 +89,7 @@ function CleanOutput(output) {
     let outputArray = outputString.split("");
     if(outputArray.length > 3)
     {
-        for(let i = outputArray - 3; i > 0; i = i - 3)
+        for(let i = outputArray - 3; i > 0; i >= 3)
         {
             outputArray.splice(i, 0, ",");
         }
