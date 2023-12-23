@@ -162,6 +162,12 @@ nav{
     nav ul {
         flex-direction: column;
         text-align: center;
+        margin-right: 20px;
+    display: inline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-items: baseline;
+    overflow: auto;
     }
 
     nav ul li {
