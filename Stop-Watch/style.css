@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #212021;
+}
+.Container{
+    background: grey;
+    padding: 200px;
+    margin: 60px 100px 60px 500px;
+    height: 19hv;
+    width: 29%;
+    border-radius: 8px;
+}
+label{
+    display: inline-flex;
+}

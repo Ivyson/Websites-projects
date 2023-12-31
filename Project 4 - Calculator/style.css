@@ -32,23 +32,23 @@
     text-align: right;
     flex: 1 1 0%;
 }
-.Display .input {
+.Display .Input {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
 .Display .output{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
     width: 100%;
     max-width: 100%;
-    overflow: auto;
+    word-wrap: break-word;
 }
 .Display .operator{
     color: pink;
 }
 .Display .brackets,
 .Display .Percentage{
-    color: blue;
+    color: #DC8CD2;
 }
 
 .keys{

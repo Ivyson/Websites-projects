@@ -30,7 +30,7 @@ for (let key of keys)
             {
                 input = input + "(";
             }
-            else if(input.indexOf("(") != -1 && input.indexOf(")") == 1 || input.indexOf("(") != -1 && input.indexOf(")") != -1 && input.lastIndexOf("(") > input.lastIndexOf(")"))
+            else if(!(input.indexOf("(") == -1 || input.indexOf("(") != -1 && input.indexOf(")") != -1 && input.lastIndexOf("(") < input.lastIndexOf(")")))
             {
                 input = input + ")";
             }
@@ -46,7 +46,7 @@ for (let key of keys)
         }
     })
 }
-function CleanInput(input){
+function CleanInput(input){ //Need to check if the comma already exists and if it does then do not allow an entry of another decimal
     let inputArray = input.split("");
     let inputArrayLength = inputArray.length;
     for(let i = 0; i < inputArrayLength; i++)
