@@ -35,7 +35,6 @@ body.dark-mode {
     position: fixed;
     top: 0;
     left: -250px;
-    /* Initial position (hidden) */
     width: 250px;
     height: 100%;
     overflow-x: hidden;
@@ -81,8 +80,11 @@ main {
 }
 
 .DownloadCv {
-    margin-left: 850px;
+    margin-left: 890px;
     transition: transform 0.3s ease-in-out;
+    height: 2px;
+    width: 2px;
+    padding: 10px;
     color: #3498db;
 }
 
@@ -207,8 +209,8 @@ nav {
     }
 
     .DownloadCv {
-        margin-left: 0;
-        text-align: center;
+        color: #3498db;
+        width: auto;
     }
 
     .dashboard {
