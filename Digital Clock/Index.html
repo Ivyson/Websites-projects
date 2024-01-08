@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+.Homepage{
+    width: 100%;
+    background: linear-gradient( 45deg, #08001f,#30197d);
+    min-height: 100vh;
+    position: relative;
+    color: aliceblue;
+}
+.Container{
+    width: 850px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.Clock{
+    width: 100%;
+    height: 100%;
+    background:  rgba(235, 0, 255,0.11);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 8px;
+    border: none;
+    backdrop-filter: blur(40px);
+}
+.Clock::after{
+    width: 180px;
+    height: 180px;
+    content: '';
+    background: red;
+    position: absolute;
+    bottom: -40%;
+    border-radius: 50%;
+    right: -15%;
+}
+.Clock::before{
+    width: 180px;
+    height: 180px;
+    content: '';
+    background: blue;
+    position: absolute;
+    top: -40%;
+    border-radius: 50%;
+    left: -15%;
+}
+.Clock span{
+    font-size: 80px;
+    width: 100px;
+    display: inline;
+    text-align: center;
+    position: relative;
+}
+.Clock span::after{
+    /* content: 'Hours'; */
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    font-size: 16px;
+    transform: translate(-50%,-50%);
+}
+#Hours::after{
+    content: 'Hours';
+}
+#Minutes::after{
+    content: 'Minutes';
+}
+#Seconds::after{
+    content: 'Seconds';
+}
+#DayTime::after{
+    content: 'Daytime';
+}
+
+    </style>
+</head>
+<body>
+    <div class="Homepage">
+        <div class="Container">
+            <div class="Clock">
+               <span id="Hours">-</span>
+               <span>:</span>
+               <span id="Minutes">-</span>
+               <span>:</span>
+               <span id="Seconds">-</span>
+               <span>/</span>
+               <span id="DayTime">-</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let sec = document.getElementById("Seconds");
+        let Min = document.getElementById("Minutes");
+        let Hrs = document.getElementById("Hours");
+        let DTimw = document.getElementById("DayTime");
+        
+        setInterval(() =>{
+            let currentdate = new Date();
+            if(currentdate.getHours() < 10)
+            {
+                Hrs.innerHTML = "0" + currentdate.getHours();
+            }
+            else{
+                Hrs.innerHTML = currentdate.getHours();
+            }
+            if(sec.innerHTML = currentdate.getSeconds() < 10)
+            {
+                sec.innerHTML = "0" + currentdate.getSeconds();
+            }
+            else{
+                sec.innerHTML = currentdate.getSeconds();
+            }
+            if(Min.innerHTML = currentdate.getMinutes() < 10)
+            {
+                Min.innerHTML = "0" + currentdate.getMinutes();
+            }
+            else{
+                Min.innerHTML = currentdate.getMinutes();
+            }
+            if(Number(currentdate.getHours()) < 12 && Number(currentdate.getHours()) >= 0)
+            {
+                DTimw.innerHTML = "AM"
+            }
+            else{
+                DTimw.innerHTML = "PM"
+            }
+            
+            
+        },1000)
+    </script>
+</body>
+</html>
