@@ -29,23 +29,26 @@
 .Clock{
     width: 100%;
     height: 100%;
-    background:  rgba(235, 0, 255,0.11);
+    background: red;
+    background-color: transparent;
     align-items: center;
     justify-content: center;
     display: flex;
     border-radius: 8px;
     border: none;
-    backdrop-filter: blur(40px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(-20px);  /*This is not working*/
 }
 .Clock::after{
-    width: 180px;
+    width: 180px; 
     height: 180px;
     content: '';
-    background: red;
+    background: rgba(255, 0, 20, 0.7);
     position: absolute;
     bottom: -40%;
-    border-radius: 50%;
+    border-radius: 0;
     right: -15%;
+    animation: moveHours 3600s backwards infinite alternate;
 }
 .Clock::before{
     width: 180px;
@@ -54,8 +57,21 @@
     background: blue;
     position: absolute;
     top: -40%;
-    border-radius: 50%;
+    border-radius:0;
     left: -15%;
+}
+.Clock::before{
+    animation: moveSeconds 60s forwards infinite;
+}
+@keyframes moveSeconds {
+    to {
+        transform: rotate(360deg); /* Rotate 360 degrees for 60 seconds */
+    }
+}
+@keyframes moveHours {
+    to {
+        transform: translateX(-100%) translateY(100%); /* Rotate 360 degrees for 12 hours */
+    }
 }
 .Clock span{
     font-size: 80px;
@@ -65,7 +81,6 @@
     position: relative;
 }
 .Clock span::after{
-    /* content: 'Hours'; */
     position: absolute;
     bottom: -20px;
     left: 50px;
