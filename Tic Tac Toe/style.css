@@ -47,14 +47,15 @@ html{
     display: block;
 }
 .popup{
-    height: 100%;
+        padding: 10px;
+        height: 100%;
         width: 100%;
         position: absolute;
         display: flex;
         z-index: 2;
         align-items: center;
         justify-content: center;
-        /* background-color: white; */
+        background-color: white;
         flex-direction: column;
         gap: 1.5em;
         font-size: 12vmin;
