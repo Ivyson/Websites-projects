@@ -1,0 +1,278 @@
+
+<!doctype html>
+<html lang="en" class="js" dir="ltr"><head><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="width=device-width" name="viewport">
+
+<title>CPUT Exam Results</title>
+
+<link media="all" href="reset.css" rel="stylesheet">
+<link media="all" href="style.css" rel="stylesheet">
+
+<style type="text/css" media="print">
+	.hide{display: none !important;}
+</style>
+
+</head>
+<body style="display: none;">
+
+<!--input type="button" class="hide" value="Print this page" onclick="window.print();"/-->
+<!-- Inclusion of download button for Statement of Results. -->
+<p>
+<form style="display: none;" id="getStatement" method="post" action="https://www.cput.ac.za/dev/studentcentre-no-cas/exams/printresults/" >
+<input type="hidden" name="snum" value="223146145" />
+<input type="hidden" name="idnum" value="0303026060085" />
+<input type="hidden" name="callback" value="getExamResults" />
+<input type="submit" name="getPDF" value="Click here to download/print your Statement of Results (FREE)" />
+</form>
+
+</p>
+
+<div class="new" id="invoice">
+
+
+	<div class="this-i">
+		<strong> Examination Results</strong>
+<small>This is not an academic record.</small>
+	</div><!-- invoice headline -->
+<hr />
+
+	<header id="header">
+		<div class="invoice-intro">
+			<img src="images/logo-blue-horizontal-website-h80px.png" />
+		</div>
+
+		<dl class="invoice-meta">
+			
+			
+			<dt class="invoice-date">Date of retrieval</dt>
+			<dd>09 Jan 2024</dd>
+			
+			
+		</dl>
+	</header>
+	<!-- e: invoice header -->
+
+
+	<section id="parties">
+
+<div class="invoice-to">
+			<h2>Student details:</h2>
+			<div id="details" class="vcard text-left">
+</div><!-- e: vcard -->
+
+		</div>
+
+	</section><!-- e: invoice partis -->
+
+
+	<section class="invoice-financials">
+<span id="loader"><img src="/dev/staff_search/img/spinner.gif" /> Loading...</span>
+		<div id="tableHolder" style="display: none;" class="invoice-items">
+			<table id="examsTable">
+				<caption></caption>
+				<thead>
+					<tr>
+						<th>Exam date</th>
+						<th>Subject</th>
+<th>Mark</th>
+<th>Pass/Fail</th>
+					</tr>
+				</thead>
+				<tbody>
+
+<tr id="examsHolder">
+</tr>				
+</tbody>
+			</table>
+		</div><!-- e: invoice items -->
+
+
+		<div class="invoice-notes">
+			<h6>Notes &amp; Information:</h6>
+<p>This is not an academic record. Contact the Assessment and Graduation Centre for more information.</p>
+
+<!--p>The marks for the following Cape Town subjects have been withheld and will be published at a later stage: MAT202S, BMA150S, MAT201S, WIS102S, MAT100S, MAT101S.</p-->
+
+
+Although the institution does everything possible to publish the results, errors may still occur. An error does not give the candidate the right to a pass mark or award of a diploma/degree.</br> </br>
+Closing date for applications re-marking: <strong> two weeks after the new semester commences</strong></br></br>
+Re-marking fee: R315.00 (per subject)</br> </br>
+Re-and supplementary examination: R640.00 (registration fee) (Maritime Studies Only)</br>
+                                  R300.00 (entry fee per subject)</br></br>
+<strong>Viewing Final Assessments/Project/Continuous subjects</strong></br>
+Closing date for applications to view final Assessment, Project and/or Script: <strong>two weeks after the new semester commences</strong></br>
+Fee: R315.00</br></br>
+<strong>Other important dates</strong></br>
+
+Closing date for applications for recognitions/exemptions: <strong>31 July 2024</strong></br></br>
+Graduation ceremony: <strong>12 December 2023 </strong></br></br>
+<strong>For online registration 2024 go to: https://alecto.cput.ac.za/pls/prodi03/w99pkg.mi_main_menu<strong></br>
+
+
+
+	<footer id="footer">
+		<p>Generated from the CPUT Website at: <a href="http://www.cput.ac.za">www.cput.ac.za</a>
+		</p>
+	</footer>
+</div><!-- e: invoice -->
+
+<script src="jquery-1.8.0.min.js"></script>
+J
+<script>
+if(window.XDomainRequest){
+	//force https for IE8-9 in order for Dreamfactory API call to work.
+	if (location.protocol != 'https:'){
+		location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+	}
+}
+if (window.jQuery) {
+		jQuery(document).ready(function () {
+				var examsTable, loader, details, examsHolder, tableHolder, b;
+				examsTable = jQuery('#examsTable');
+				loader = jQuery('#loader');
+				details = jQuery('#details');
+				tableHolder = jQuery('#tableHolder');
+				examsHolder = jQuery('#examsHolder');
+				b = jQuery('body');
+				tableHolder.hide();
+				
+				apiKey = 'd4fef7f161bf343ddebbbead56af0c2ba9cd51e5485c48a51f41fa594bb16182';
+				//apiKey = 'ab6cf959715cd9d2f3569203153d06d3987d2d9286b8acd7d01c4948becef31d';
+				headers = {
+					'Accept': 'application/json',
+					'X-DreamFactory-Api-Key': apiKey,
+					'Access-Control-Allow-Origin': 'api.cput.ac.za'
+					//'Access-Control-Allow-Origin': 'alma.cput.ac.za'
+				};
+				url = "https://api.cput.ac.za/api/v2/students/223146145?getExaminations=true&idNumber=9310116069083&getProfile=true";
+				//url = "https://alma.cput.ac.za/api/v2/students/223146145?getExaminations=true&idNumber=0303026060085&getProfile=true";
+				var idNumber = "0303026060085";
+				
+				beforeSend = function(){};
+				data = {
+					getExaminations: "true",
+					idNumber: idNumber
+				};
+				success = function (jsonData, textStatus, jqXHR) {
+					if(window.XDomainRequest){
+						jsonData = jQuery.parseJSON(jsonData);
+					}
+					student = jsonData.response.students[0];
+					console.log(student);
+					var location = 0;
+					b.show();				
+					loader.hide();
+					tableHolder.show().html('');
+					details.html('\
+						<blockquote>\
+							<small><p>223146145</p></small>\
+							<small><p>'+student.profile.fullname +'</p></small>\
+							<small>'+student.profile.addresses[0].address +'</small>\
+							</blockquote>\
+					');
+
+					for(i=0; i < student.qualifications.length; i++){
+						var tmp = '\
+						<table>\
+							<caption>\
+							<span>'+student.qualifications[i].name+' </span>\
+							<span>('+student.qualifications[i].code+', </span>\
+							<span>Faculty: '+student.qualifications[i].faculty+')</span>';
+							
+							if(student.qualifications[i].isShortCourse){
+								tmp += '<br/><br/><small>You have short courses as part of this qualification. Please see the notice at the bottom of this page.</small>';
+							}
+								
+							tmp += '</caption>';
+							
+							if(student.qualifications[i].qualification.examinations.length === 0){
+								tmp += '<tr><td>You have no results in this course yet.</td></tr>';
+							}else{
+								tmp += '<thead> <tr><th>Exam date</th><th>Subject</th><th>Mark</th><th>Pass/Fail</th></tr> </thead><tbody>';
+								for(n=0; n < student.qualifications[i].qualification.examinations.length; n++){
+									tmp += '<tr>\
+										<td>'+student.qualifications[i].qualification.examinations[n].examinationYear+'/'+student.qualifications[i].qualification.examinations[n].examinationMonth+'</td>\
+										<td>'+student.qualifications[i].qualification.examinations[n].subjectName+' ('+student.qualifications[i].qualification.examinations[n].subjectCode+')</td>\
+										<td>'+student.qualifications[i].qualification.examinations[n].examinationMark+'</td>\
+										<td>'+student.qualifications[i].qualification.examinations[n].examinationMarkLabel+'</td>\
+									</tr>';
+								}
+								
+								tmp += '</tbody>';
+							}
+						
+						tmp += '</table><br /><br />';
+						
+						tableHolder.append(tmp);
+					}
+				};
+				error = function (jqXHR, textStatus, errorThrown) {
+					if(confirm('Sorry, we cannot find your results.  This error may be caused by some of the reasons below;\n\n1. Ensure you have entered the correct Student Number and ID/Passport Number\n\n2. Your marks have not yet been published,\n\n3. You may not be registered for this year or examination session or \n\n3. Something technical went wrong. \n\nDo you want to try check your records again?')){
+						window.location.href = 'http://www.cput.ac.za/dev/studentcentre-no-cas/exams/';
+					}
+				};
+				
+				//IE8 and 9 do not use ajax method but XDomainRequest. See: http://mcgivery.com/ie8-and-cors/
+				if(window.XDomainRequest){
+					//force https
+					if (location.protocol != 'https:'){
+					 location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+					}
+					var xdr = new XDomainRequest();
+					xdr.open("get", url + "?" + jQuery.param(data) + "&api_key=" + apiKey + "&content_type=application/json");
+					xdr.onprogress = beforeSend;
+					xdr.ontimeout = function () { };
+					xdr.onerror = function(){
+						if(confirm('Sorry, we cannot find your results.  This error may be caused by some of the reasons below;\n\n1. Ensure you have entered the correct Student Number and ID/Passport Number\n\n2. Your marks have not yet been published,\n\n3. You may not be registered for this year or examination session or \n\n3. Something technical went wrong. \n\nDo you want to try check your records again?')){
+							window.location.href = 'http://www.cput.ac.za/dev/studentcentre-no-cas/exams/';
+						}
+					};
+					xdr.onload = function() {
+					  success(xdr.responseText);
+					}
+					setTimeout(function () {xdr.send();}, 0);
+				} else {
+					jQuery.support.cors = true;
+					jQuery.ajax({
+						url: url,
+						method: "GET",
+						headers: headers,
+						data: data,		
+						crossDomain: true,
+						cache: false,
+						dataType: 'JSON',
+						beforeSend: beforeSend,
+						success: success,
+						error: error,
+						complete: function(){}
+					});
+
+				}
+				return false;
+		});
+	}
+	</script>
+
+
+<script type="text/javascript">var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-27006160-1']);
+_gaq.push(['_setDomainName', 'cput.ac.za']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackEvent', 'ExamResultsPrint', 'Website']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://www.cput.ac.za/templates/www.cput.ac.za/js/cput.analytics.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//track the submission of the statement of results pdf form
+$( "#getStatement" ).submit(function( event ) {
+  setTimeout(function() { 
+      _gaq.push(['_trackEvent', 'SEO-Links-FileDownload', 'Click-ExamsStatement', 'ExamPDF']);
+  }, 200);
+});
+</script>
+
+</body></html>
